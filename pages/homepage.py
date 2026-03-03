@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 class HomePage:
     def __init__(self, page: Page):
@@ -14,10 +14,14 @@ class HomePage:
     def search_product(self, product_name: str):
         self.search_input.fill("") 
         self.search_input.fill(product_name)
-        self.page.wait_for_timeout(1000)
+        # Wait until the product list updates
+        expect(self.page.locator(".products-wrapper .product")).to_have_count(1, timeout=5000)
+
     def open_cart(self):
         self.page.locator(".cart-icon").click()
-        self.page.wait_for_timeout(1000)
+        # Wait until the cart preview is visible
+        expect(self.page.locator(".cart-preview")).to_be_visible(timeout=5000)
+
     def remove_product_by_name(self, product_name: str):
         cart_items = self.page.locator(".cart-item")
 
@@ -38,11 +42,13 @@ class HomePage:
         self.add_buttons.first.click()
     def get_search_results(self):
         products = self.page.locator(".products-wrapper .product")
-        self.page.wait_for_timeout(2000)    
+        self.page.locator(".products-wrapper .product").first.wait_for()
         return products.all_text_contents()
+
     def get_cart_count(self):
-        self.page.wait_for_timeout(2000) 
+        expect(self.cart_count).not_to_have_text("0")
         return self.cart_count
+
     def get_price_from_cart(self):
         cart_items = self.page.locator(".cart-item")
 
@@ -62,4 +68,5 @@ class HomePage:
         return  prices
     def proceed_to_checkout(self):
         self.proceed_button.click()
-        self.page.wait_for_timeout(1000)
+        # Wait until checkout table rows are visible
+        self.page.wait_for_selector(".cartTable tbody tr", timeout=5000)

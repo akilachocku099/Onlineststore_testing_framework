@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 class CheckoutPage:
     def __init__(self, page: Page):
@@ -47,8 +47,9 @@ class CheckoutPage:
         self.page.wait_for_selector(".wrapperTwo select")
     def select_country(self, country_name):
         self.page.locator(".wrapperTwo select").select_option(country_name)
-        self.page.wait_for_timeout(1000)
-        #self.country_suggestion.first.click()  
+        # Wait until the dropdown actually reflects the selected value
+        expect(self.page.locator(".wrapperTwo select")).to_have_value(country_name, timeout=5000)
+
     def accept_terms(self):
         self.terms_checkbox.check()
     def confirm_order(self):

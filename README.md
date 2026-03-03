@@ -75,6 +75,13 @@ pip install -r requirements.txt
 pytest
 
 ---
+## Test Results
+
+Below is a sample test run showing all tests passing:
+
+![Test Run Screenshot](Screenshots\Testcases_output.png)
+
+----
 
 ## Future Improvements
 

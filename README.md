@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Playwright Automation Testing Framework
 
 This project is an end-to-end UI automation framework built using **Python, Playwright, and Pytest**.  
@@ -76,3 +77,7 @@ Clone the repository:
 ```bash
 git clone <repo-url>
 cd OnlineStore_Testing_Framework
+=======
+# Onlineststore_testing_framework
+Playwright automation testing framework built with Python and Pytest using Page Object Model for testing search, cart, and checkout functionality.
+>>>>>>> eeaf7d19331051eef03fc53e5b4de1418298a9cb

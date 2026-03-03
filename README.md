@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Playwright Automation Testing Framework
 
 This project is an end-to-end UI automation framework built using **Python, Playwright, and Pytest**.  
@@ -10,7 +9,6 @@ https://rahulshettyacademy.com/seleniumPractise/#/
 ---
 
 ## Tech Stack
-
 - Python
 - Playwright
 - Pytest
@@ -19,17 +17,16 @@ https://rahulshettyacademy.com/seleniumPractise/#/
 ---
 
 ## Project Structure
-
 OnlineStore_Testing_Framework/
 
 pages/  
-&nbsp;&nbsp;homepage.py  
-&nbsp;&nbsp;checkout_page.py  
+  homepage.py  
+  checkout_page.py  
 
 tests/  
-&nbsp;&nbsp;test_search.py  
-&nbsp;&nbsp;test_cart.py  
-&nbsp;&nbsp;test_checkout.py  
+  test_search.py  
+  test_cart.py  
+  test_checkout.py  
 
 conftest.py  
 pytest.ini  
@@ -58,11 +55,9 @@ README.md
 ---
 
 ## Design Pattern Used
-
 **Page Object Model (POM)**
 
 Pages are separated into reusable classes:
-
 - HomePage
 - CheckoutPage
 
@@ -73,11 +68,34 @@ This improves maintainability and readability.
 ## Installation
 
 Clone the repository:
-
 ```bash
-git clone <repo-url>
+git clone https://github.com/akilachocku099/Onlineststore_testing_framework.git
 cd OnlineStore_Testing_Framework
-=======
-# Onlineststore_testing_framework
-Playwright automation testing framework built with Python and Pytest using Page Object Model for testing search, cart, and checkout functionality.
->>>>>>> eeaf7d19331051eef03fc53e5b4de1418298a9cb
+pip install -r requirements.txt
+pytest
+
+---
+
+## Future Improvements
+
+This framework can be enhanced further with:
+
+- **CI/CD Integration**  
+  Set up GitHub Actions or Jenkins pipelines to run tests automatically on every commit.
+
+- **Test Reporting**  
+  Add HTML or Allure reports for better visualization of test results.
+
+- **Cross-Browser Testing**  
+  Extend Playwright tests to run across Chrome, Firefox, and WebKit for broader coverage.
+
+- **Environment Configurations**  
+  Support multiple environments (dev, staging, production) with configurable base URLs.
+
+- **Additional Test Coverage**  
+  Expand scenarios to include login, promotions, order history, and error handling.
+
+- **Dockerization**  
+  Containerize the framework for consistent execution across different systems.
+
+---
